@@ -1,4 +1,4 @@
-platform:ios, '7.0'
-pod 'AFNetworking', '~> 2.2'
-pod 'Mantle'
-pod 'LBBlurredImage'
+target 'DublinWeatherApp' do
+	pod 'Mantle'
+	pod 'LBBlurredImage'
+end

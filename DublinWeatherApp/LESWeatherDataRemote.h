@@ -12,5 +12,6 @@
 @interface LESWeatherDataRemote : NSObject
 
 -(instancetype)initWithLocation:(CLLocationCoordinate2D)coordinate;
+-(instancetype)initWithCity:(NSString*)city;
 
 @end

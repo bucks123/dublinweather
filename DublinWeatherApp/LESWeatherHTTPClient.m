@@ -19,6 +19,7 @@ static NSString * const kOpenWeatherMapBaseURL = @"http://api.openweathermap.org
 
 @property(nonatomic, strong) LESJSONFetcher *jsonFetcher;
 @property (nonatomic,assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic,copy) NSString *city;
 
 @end
 
@@ -40,13 +41,32 @@ static NSString * const kOpenWeatherMapBaseURL = @"http://api.openweathermap.org
     if (self) {
         _jsonFetcher = [[LESJSONFetcher alloc] init];
         _coordinate = coordinate;
+        _city = nil;
     }
     return self;
 }
 
+-(instancetype)initWithCity:(NSString*)city{
+    
+    self = [super init];
+    if (self) {
+        _jsonFetcher = [[LESJSONFetcher alloc] init];
+        _city = city;
+    }
+    return self;
+}
+
+
+
 -(void)fetchCurrentConditionWithCompletionBlock:(WeatherDataDownloadingCompletionBlock)completionBlock{
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/weather?lat=%f&lon=%f&units=metric%@",kOpenWeatherMapBaseURL, self.coordinate.latitude, self.coordinate.longitude, kOpenWeatherMapAPIKey];
+    NSString *urlString = nil;
+    if (self.city) {
+        urlString = [NSString stringWithFormat:@"%@/weather?q=%@&units=metric%@",kOpenWeatherMapBaseURL,self.city, kOpenWeatherMapAPIKey];
+    }else{
+        urlString = [NSString stringWithFormat:@"%@/weather?lat=%f&lon=%f&units=metric%@",kOpenWeatherMapBaseURL, self.coordinate.latitude, self.coordinate.longitude, kOpenWeatherMapAPIKey];
+    }
+    
     NSLog(@"URL string: %@", urlString);
     
     NSURL *url = [NSURL URLWithString:urlString];
@@ -64,17 +84,24 @@ static NSString * const kOpenWeatherMapBaseURL = @"http://api.openweathermap.org
 
 -(void)fetchHourlyForecastWithCompletionBlock:(WeatherDataDownloadingCompletionBlock)completionBlock{
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/forecast?lat=%f&lon=%f&units=metric&cnt=12%@", kOpenWeatherMapBaseURL, self.coordinate.latitude, self.coordinate.longitude,kOpenWeatherMapAPIKey];
+    NSString *urlString = nil;
+    
+    if (self.city) {
+        urlString = [NSString stringWithFormat:@"%@/forecast?q=%@&units=metric%@",kOpenWeatherMapBaseURL,self.city, kOpenWeatherMapAPIKey];
+    }else{
+        urlString = [NSString stringWithFormat:@"%@/forecast?lat=%f&lon=%f&units=metric&cnt=12%@", kOpenWeatherMapBaseURL, self.coordinate.latitude, self.coordinate.longitude,kOpenWeatherMapAPIKey];
+    }
+
     NSURL *url = [NSURL URLWithString:urlString];
     
     [self.jsonFetcher fetchJSONFromURL:url withCompletionBlock:^(NSDictionary *weatherDataList, NSError *error) {
         NSArray *weatherObjects = weatherDataList[@"list"];
-            //NSLog(@"initial array list %@ and count is %d", weatherObjects, weatherObjects.count);
+            NSLog(@"initial array list %@ and count is %lu", weatherObjects, (unsigned long)weatherObjects.count);
         
         NSMutableArray *weatherObjectsMappedMantle = [NSMutableArray array];
         [weatherObjects enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
             weatherObjectsMappedMantle[idx] = [MTLJSONAdapter modelOfClass:[LESWeatherCondition class] fromJSONDictionary:object error:nil];
-                //NSLog(@"Hourly Object %d  %@ returned from server after mantle",idx, weatherObjectsMappedMantle[idx]);
+                NSLog(@"Hourly Object %lu  %@ returned from server after mantle",(unsigned long)idx, weatherObjectsMappedMantle[idx]);
         }];
         
         if (completionBlock) {
@@ -86,17 +113,25 @@ static NSString * const kOpenWeatherMapBaseURL = @"http://api.openweathermap.org
 
 - (void)fetchDailyForecastWithCompletionBlock:(WeatherDataDownloadingCompletionBlock)completionBlock{
     
-    NSString *urlString = [NSString stringWithFormat:@"%@/forecast/daily?lat=%f&lon=%f&units=metric&cnt=7%@",kOpenWeatherMapBaseURL,self.coordinate.latitude, self.coordinate.longitude,kOpenWeatherMapAPIKey];
+    
+    NSString *urlString = nil;
+    
+    if (self.city) {
+        urlString = [NSString stringWithFormat:@"%@/forecast/daily?q=%@&units=metric&cnt=7%@",kOpenWeatherMapBaseURL, self.city,kOpenWeatherMapAPIKey];
+    }else{
+        urlString = [NSString stringWithFormat:@"%@/forecast/daily?lat=%f&lon=%f&units=metric&cnt=7%@",kOpenWeatherMapBaseURL,self.coordinate.latitude, self.coordinate.longitude,kOpenWeatherMapAPIKey];
+    }
+    
     NSURL *url = [NSURL URLWithString:urlString];
     
     [self.jsonFetcher fetchJSONFromURL:url withCompletionBlock:^(NSDictionary *weatherDataList, NSError *error) {
         NSArray *weatherObjects = weatherDataList[@"list"];
-            //NSLog(@"initial array list %@ and count is %d", weatherObjects, weatherObjects.count);
+            NSLog(@"initial array list %@ and count is %lu", weatherObjects, (unsigned long)weatherObjects.count);
         
         NSMutableArray *weatherObjectsMappedMantle = [NSMutableArray array];
         [weatherObjects enumerateObjectsUsingBlock:^(id object, NSUInteger idx, BOOL *stop) {
             weatherObjectsMappedMantle[idx] = [MTLJSONAdapter modelOfClass:[LESDailyWeatherCondition class] fromJSONDictionary:object error:nil];
-                //NSLog(@"Daily Object %d  %@ returned from server after mantle",idx, weatherObjectsMappedMantle[idx]);
+                NSLog(@"Daily Object %lu  %@ returned from server after mantle",(unsigned long)idx, weatherObjectsMappedMantle[idx]);
         }];
         
         if (completionBlock) {

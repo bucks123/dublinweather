@@ -46,6 +46,19 @@
     return self;
 }
 
+-(instancetype)initWithCity:(NSString*)city{
+    
+    self = [super init];
+    
+    if (self) {
+        
+        _weatherData = (id<LESWeatherDataHTTP>)[[LESWeatherHTTPClient alloc] initWithCity:city];
+        _persistencyManager = [[LESPersistencyManager alloc] init];
+        
+    }
+    return self;
+}
+
 -(void)getCurrentWeatherConditionWithCompletion:(WeatherCompletionBlock)completionBlock;{
     
     __block LESWeatherCondition *currentCondition;

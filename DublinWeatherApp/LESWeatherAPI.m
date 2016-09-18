@@ -73,7 +73,8 @@
 -(void)updateWithLocation:(CLLocation*)location{
     
     if (self.isOnline) {
-        self.weatherData = (id<LESWeatherData>) [[LESWeatherDataRemote alloc] initWithLocation:location.coordinate];
+       // self.weatherData = (id<LESWeatherData>) [[LESWeatherDataRemote alloc] initWithLocation:location.coordinate];
+        self.weatherData = (id<LESWeatherData>) [[LESWeatherDataRemote alloc] initWithCity:@"London"];
     }
     
     [self getCurrentWeatherCondition];

@@ -58,7 +58,7 @@ static NSDateFormatter *sDailyDateFormatter = nil;
     self.screenHeight = [UIScreen mainScreen].bounds.size.height;
     
         //set normal background image - TODO use flickr to set background image based on location
-    UIImage *background = [UIImage imageNamed:[NSString stringWithFormat:@"DublinSpire"]];
+    UIImage *background = [UIImage imageNamed:[NSString stringWithFormat:@"londonbridge"]];
     self.backgoundImageView = [[UIImageView alloc] initWithImage:background];
     self.backgoundImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.view addSubview:self.backgoundImageView];

@@ -1,0 +1,17 @@
+PODS:
+  - LBBlurredImage (0.2.0)
+  - Mantle (1.5):
+    - Mantle/extobjc (= 1.5)
+  - Mantle/extobjc (1.5)
+
+DEPENDENCIES:
+  - LBBlurredImage
+  - Mantle
+
+SPEC CHECKSUMS:
+  LBBlurredImage: 33fc146058f2f607419b1db3eb1bfc1b1d9ac96c
+  Mantle: 3bf6db311c8b4a19b6be01f2483fa4590aa166f3
+
+PODFILE CHECKSUM: d081c06af615193dc072ea0d6d7fb8629b1545fe
+
+COCOAPODS: 1.0.1

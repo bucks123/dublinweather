@@ -2,7 +2,7 @@
 //  DublinWeatherAppTests.m
 //  DublinWeatherAppTests
 //
-//  Created by kieran buckley on 26/06/2014.
+//  Created by kieran buckley on 16/09/2016.
 //  Copyright (c) 2014 LesApps. All rights reserved.
 //
 
@@ -24,11 +24,6 @@
 {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
-}
-
-- (void)testExample
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

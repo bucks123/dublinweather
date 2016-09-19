@@ -10,11 +10,10 @@ Running
 
 Use
 
-Screen 1 Current Weather Conditions for London (Weather API gave incorrect data for GPS co-ordinates or city name of Dublin)
-Action: Swipe up
-Screen 2: Hourly weather forecast
-Action: Swipe up
-Screen 3: Daily weather forecast
+1. Initial Screen -Current Weather Conditions for London (Weather API gave incorrect data for GPS co-ordinates or city name of Dublin)
+
+2. Action -> Swipe up : Screen 2 Hourly weather forecast
+3. Action-> Swipe up  : Screen 3 Daily weather forecast
 
 
 Future Improvements

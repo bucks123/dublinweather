@@ -103,7 +103,6 @@
                 if (completionBlock) {
                     completionBlock(dailyForecast);
                 }
-                //[self notifyWeatherWatchersOfWeatherUpdates];
             }else{
                 completionBlock(nil);
                 
@@ -133,7 +132,6 @@
                 if (completionBlock) {
                     completionBlock(hourlyForecast);
                 }
-                // [self notifyWeatherWatchersOfWeatherUpdates];
             }else{
                 completionBlock(nil);
                 //show alert for error

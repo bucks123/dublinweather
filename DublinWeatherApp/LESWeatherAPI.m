@@ -10,12 +10,12 @@
 #import "LESWeatherAPI.h"
 #import "LESWeatherHTTPClient.h"
 #import "Reachability.h"
-#import "LESUtils.h"
 #import "LESLocationFetcher.h"
 #import "LESWeatherData.h"
 #import "LESWeatherDataRemote.h"
 #import "LESWeatherDataLocal.h"
 
+NSString *const kWeatherAPIContentUpdateNotification = @"com.lesapps.dublinweatherapp.NewWeatherInformation";
 
 @interface LESWeatherAPI() <LESLocationFetcherDelegate>
 
@@ -40,7 +40,7 @@
     
     if (self) {
         _isOnline = YES;
-        _weatherData = (id<LESWeatherData>)[[LESWeatherDataRemote alloc] init];
+        _weatherData = (id<LESWeatherData>)[[LESWeatherDataRemote alloc] initWithCity:@"London"];
         _locationFetcher = [[LESLocationFetcher alloc] init];
         _locationFetcher.delegate = self;
         
@@ -48,6 +48,10 @@
         
         _internetReachability = [Reachability reachabilityForInternetConnection];
         [self.internetReachability startNotifier];
+        
+        [self getCurrentWeatherCondition];
+        [self getHourlyForecast];
+        [self getDailyForecast];
         
     }
     return self;

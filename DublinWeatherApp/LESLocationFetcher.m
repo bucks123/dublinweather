@@ -40,16 +40,18 @@
     NSLog(@"In findCurrentLocation...");
     CLAuthorizationStatus authorizationStatus= [CLLocationManager authorizationStatus];
     
-    
-    if (authorizationStatus == kCLAuthorizationStatusAuthorized ||
-        authorizationStatus == kCLAuthorizationStatusAuthorizedAlways ||
-        authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
-        
-        [self.locationManager startUpdatingLocation];
-        
+    if([CLLocationManager locationServicesEnabled] == NO){
+        NSLog(@"Location Services Not Enabled ");
+    }else if(authorizationStatus == kCLAuthorizationStatusAuthorizedAlways){
+            
+            [self.locationManager startUpdatingLocation];
+            
     }else{
-        [self.locationManager requestWhenInUseAuthorization];
+            [self.locationManager requestWhenInUseAuthorization];
+            [self.locationManager startUpdatingLocation];
     }
+    
+    [self.locationManager startUpdatingLocation];
     
 }
 
@@ -66,6 +68,16 @@
     [self.delegate updateWithLocation:location];
     
 }
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    
+    NSLog(@"Error while getting core location : %@",[error localizedFailureReason]);
+    if ([error code] == kCLErrorDenied) {
+        //you had denied
+    }
+    [manager stopUpdatingLocation];
+}
+
 
 
 @end

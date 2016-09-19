@@ -14,6 +14,7 @@
 		852D23BB1D8DDE75009EF56F /* LESWeatherDataLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 852D23BA1D8DDE75009EF56F /* LESWeatherDataLocal.m */; };
 		852D23C21D8EF3C4009EF56F /* londonbridge.png in Resources */ = {isa = PBXBuildFile; fileRef = 852D23C11D8EF3C4009EF56F /* londonbridge.png */; };
 		85EE2AAA1D8F164400E958E3 /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 85EE2AA91D8F164400E958E3 /* Podfile.lock */; };
+		85EE2AEC1D8FE27400E958E3 /* LESWeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85EE2AEB1D8FE27400E958E3 /* LESWeatherViewController.m */; };
 		E06FB81E195C29FB00B2C21A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FB81D195C29FB00B2C21A /* Foundation.framework */; };
 		E06FB820195C29FB00B2C21A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FB81F195C29FB00B2C21A /* CoreGraphics.framework */; };
 		E06FB822195C29FB00B2C21A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FB821195C29FB00B2C21A /* UIKit.framework */; };
@@ -56,7 +57,6 @@
 		E06FB897195C438600B2C21A /* weather-snow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E06FB87D195C438600B2C21A /* weather-snow@2x.png */; };
 		E06FB898195C438600B2C21A /* weather-tstorm.png in Resources */ = {isa = PBXBuildFile; fileRef = E06FB87E195C438600B2C21A /* weather-tstorm.png */; };
 		E06FB899195C438600B2C21A /* weather-tstorm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E06FB87F195C438600B2C21A /* weather-tstorm@2x.png */; };
-		E06FB89C195C6AC000B2C21A /* LESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E06FB89B195C6AC000B2C21A /* LESUtils.m */; };
 		E06FB8A3195CC36800B2C21A /* DublinSpire.png in Resources */ = {isa = PBXBuildFile; fileRef = E06FB8A2195CC36800B2C21A /* DublinSpire.png */; };
 		E06FB8A5195D700000B2C21A /* LESPersistencyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E06FB8A4195D700000B2C21A /* LESPersistencyManagerTests.m */; };
 		E06FB8A7195D702F00B2C21A /* LESWeatherAPITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E06FB8A6195D702F00B2C21A /* LESWeatherAPITests.m */; };
@@ -91,6 +91,8 @@
 		852D23BA1D8DDE75009EF56F /* LESWeatherDataLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESWeatherDataLocal.m; sourceTree = "<group>"; };
 		852D23C11D8EF3C4009EF56F /* londonbridge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = londonbridge.png; sourceTree = "<group>"; };
 		85EE2AA91D8F164400E958E3 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		85EE2AEA1D8FE27400E958E3 /* LESWeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LESWeatherViewController.h; sourceTree = "<group>"; };
+		85EE2AEB1D8FE27400E958E3 /* LESWeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESWeatherViewController.m; sourceTree = "<group>"; };
 		89C810B3184B3DCABC6D3568 /* Pods-DublinWeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DublinWeatherApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DublinWeatherApp/Pods-DublinWeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BC2082BB41B75524CF388C09 /* libPods-DublinWeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DublinWeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FB81A195C29FB00B2C21A /* DublinWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DublinWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,8 +146,6 @@
 		E06FB87D195C438600B2C21A /* weather-snow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather-snow@2x.png"; sourceTree = "<group>"; };
 		E06FB87E195C438600B2C21A /* weather-tstorm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather-tstorm.png"; sourceTree = "<group>"; };
 		E06FB87F195C438600B2C21A /* weather-tstorm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weather-tstorm@2x.png"; sourceTree = "<group>"; };
-		E06FB89A195C6AB800B2C21A /* LESUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LESUtils.h; sourceTree = "<group>"; };
-		E06FB89B195C6AC000B2C21A /* LESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESUtils.m; sourceTree = "<group>"; };
 		E06FB8A2195CC36800B2C21A /* DublinSpire.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DublinSpire.png; sourceTree = "<group>"; };
 		E06FB8A4195D700000B2C21A /* LESPersistencyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESPersistencyManagerTests.m; sourceTree = "<group>"; };
 		E06FB8A6195D702F00B2C21A /* LESWeatherAPITests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LESWeatherAPITests.m; sourceTree = "<group>"; };
@@ -358,6 +358,8 @@
 			children = (
 				E06FB833195C29FB00B2C21A /* LESViewController.m */,
 				E06FB832195C29FB00B2C21A /* LESViewController.h */,
+				85EE2AEA1D8FE27400E958E3 /* LESWeatherViewController.h */,
+				85EE2AEB1D8FE27400E958E3 /* LESWeatherViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -417,8 +419,6 @@
 			children = (
 				E06FB8B61960A46900B2C21A /* Reachability.m */,
 				E06FB8B51960A45E00B2C21A /* Reachability.h */,
-				E06FB89A195C6AB800B2C21A /* LESUtils.h */,
-				E06FB89B195C6AC000B2C21A /* LESUtils.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -603,7 +603,6 @@
 				E06FB82A195C29FB00B2C21A /* main.m in Sources */,
 				E06FB860195C311900B2C21A /* LESWeatherHTTPClient.m in Sources */,
 				E06FB85A195C2B6000B2C21A /* LESPersistencyManager.m in Sources */,
-				E06FB89C195C6AC000B2C21A /* LESUtils.m in Sources */,
 				E06FB8B71960A46900B2C21A /* Reachability.m in Sources */,
 				852D23B21D8CA29A009EF56F /* LESLocationFetcher.m in Sources */,
 				852D23B71D8DD2C2009EF56F /* LESWeatherDataRemote.m in Sources */,
@@ -611,6 +610,7 @@
 				E06FB863195C421800B2C21A /* LESWeatherCondition.m in Sources */,
 				E06FB85D195C2BBE00B2C21A /* LESWeatherAPI.m in Sources */,
 				E06FB8B41960881700B2C21A /* LESDailyWeatherCondition.m in Sources */,
+				85EE2AEC1D8FE27400E958E3 /* LESWeatherViewController.m in Sources */,
 				852D23BB1D8DDE75009EF56F /* LESWeatherDataLocal.m in Sources */,
 				E06FB834195C29FB00B2C21A /* LESViewController.m in Sources */,
 				E06FB82E195C29FB00B2C21A /* LESAppDelegate.m in Sources */,
@@ -746,7 +746,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DublinWeatherApp/DublinWeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "DublinWeatherApp/DublinWeatherApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -761,7 +761,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DublinWeatherApp/DublinWeatherApp-Prefix.pch";
 				INFOPLIST_FILE = "DublinWeatherApp/DublinWeatherApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

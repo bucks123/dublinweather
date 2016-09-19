@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const kWeatherAPIContentUpdateNotification;
+
 @class LESWeatherCondition;
 
 @interface LESWeatherAPI : NSObject 

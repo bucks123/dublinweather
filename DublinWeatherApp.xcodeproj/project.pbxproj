@@ -22,7 +22,6 @@
 		E06FB82A195C29FB00B2C21A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E06FB829195C29FB00B2C21A /* main.m */; };
 		E06FB82E195C29FB00B2C21A /* LESAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E06FB82D195C29FB00B2C21A /* LESAppDelegate.m */; };
 		E06FB831195C29FB00B2C21A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06FB82F195C29FB00B2C21A /* Main.storyboard */; };
-		E06FB834195C29FB00B2C21A /* LESViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E06FB833195C29FB00B2C21A /* LESViewController.m */; };
 		E06FB836195C29FB00B2C21A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E06FB835195C29FB00B2C21A /* Images.xcassets */; };
 		E06FB83D195C29FB00B2C21A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FB83C195C29FB00B2C21A /* XCTest.framework */; };
 		E06FB83E195C29FB00B2C21A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E06FB81D195C29FB00B2C21A /* Foundation.framework */; };
@@ -106,8 +105,6 @@
 		E06FB82C195C29FB00B2C21A /* LESAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LESAppDelegate.h; sourceTree = "<group>"; };
 		E06FB82D195C29FB00B2C21A /* LESAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LESAppDelegate.m; sourceTree = "<group>"; };
 		E06FB830195C29FB00B2C21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E06FB832195C29FB00B2C21A /* LESViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LESViewController.h; sourceTree = "<group>"; };
-		E06FB833195C29FB00B2C21A /* LESViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LESViewController.m; sourceTree = "<group>"; };
 		E06FB835195C29FB00B2C21A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E06FB83B195C29FB00B2C21A /* DublinWeatherAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DublinWeatherAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E06FB83C195C29FB00B2C21A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -356,8 +353,6 @@
 		E06FB853195C2A4700B2C21A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E06FB833195C29FB00B2C21A /* LESViewController.m */,
-				E06FB832195C29FB00B2C21A /* LESViewController.h */,
 				85EE2AEA1D8FE27400E958E3 /* LESWeatherViewController.h */,
 				85EE2AEB1D8FE27400E958E3 /* LESWeatherViewController.m */,
 			);
@@ -612,7 +607,6 @@
 				E06FB8B41960881700B2C21A /* LESDailyWeatherCondition.m in Sources */,
 				85EE2AEC1D8FE27400E958E3 /* LESWeatherViewController.m in Sources */,
 				852D23BB1D8DDE75009EF56F /* LESWeatherDataLocal.m in Sources */,
-				E06FB834195C29FB00B2C21A /* LESViewController.m in Sources */,
 				E06FB82E195C29FB00B2C21A /* LESAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

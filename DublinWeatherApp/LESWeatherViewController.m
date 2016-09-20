@@ -96,37 +96,6 @@ static NSDateFormatter *sDailyDateFormatter = nil;
     }
 }
 
-//- (void)viewWillLayoutSubviews {
-//    [super viewWillLayoutSubviews];
-//
-//    CGRect bounds = self.view.bounds;
-//
-//    self.backgoundImageView.frame = bounds;
-//    self.blurredImageView.frame = bounds;
-//    self.tableView.frame = bounds;
-//}
-
-//-(void)viewDidLayoutSubviews{
-//
-//    [super viewDidLayoutSubviews];
-//    [self sizeHeaderToFit];
-//}
-//
-//-(void)sizeHeaderToFit{
-//
-//    UIView *headerView = self.tableView.tableHeaderView;
-//
-//    [headerView setNeedsLayout];
-//    [headerView layoutIfNeeded];
-//    CGFloat height = [headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-//    CGRect frame = headerView.frame;
-//
-//    frame.size.height = height;
-//    headerView.frame = frame;
-//
-//    self.tableView.tableHeaderView = headerView;
-//}
-
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

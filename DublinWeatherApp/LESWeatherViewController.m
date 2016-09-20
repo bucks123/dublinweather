@@ -11,6 +11,7 @@
 #import "LESWeatherAPI.h"
 #import "LESWeatherCondition.h"
 #import "LESWeatherHTTPClient.h"
+//#import "LESWeatherHeaderView.m"
 
 @interface LESWeatherViewController ()
 
@@ -50,6 +51,7 @@ static NSDateFormatter *sDailyDateFormatter = nil;
     return self;
 }
 
+
 - (void)viewDidLoad{
     
     [super viewDidLoad];
@@ -63,7 +65,7 @@ static NSDateFormatter *sDailyDateFormatter = nil;
     self.backgoundImageView = [[UIImageView alloc] initWithImage:background];
     self.backgoundImageView.contentMode = UIViewContentModeScaleAspectFill;
     [self.tableView.tableHeaderView sendSubviewToBack:self.backgoundImageView];
-   
+    
     //set blurred background image
     self.blurredImageView = [[UIImageView alloc] init];
     self.blurredImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -75,7 +77,55 @@ static NSDateFormatter *sDailyDateFormatter = nil;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(contentChangedNotification:) name:kWeatherAPIContentUpdateNotification object:nil];
 }
 
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    UIView *headerView = self.tableView.tableHeaderView;
+    
+    if (headerView) {
+        CGRect rect = CGRectMake(0, 0, self.view.bounds.size.width,self.view.bounds.size.height);
+        
+        // Only adjust frame if needed to avoid infinite loop
+        if (!CGRectEqualToRect(self.tableView.tableHeaderView.frame, rect)) {
+            headerView.frame = rect;
+            
+            // This will apply the new header size and trigger another
+            // call of layoutSubviews
+            self.tableView.tableHeaderView = headerView;
+        }
+    }
+}
 
+//- (void)viewWillLayoutSubviews {
+//    [super viewWillLayoutSubviews];
+//
+//    CGRect bounds = self.view.bounds;
+//
+//    self.backgoundImageView.frame = bounds;
+//    self.blurredImageView.frame = bounds;
+//    self.tableView.frame = bounds;
+//}
+
+//-(void)viewDidLayoutSubviews{
+//
+//    [super viewDidLayoutSubviews];
+//    [self sizeHeaderToFit];
+//}
+//
+//-(void)sizeHeaderToFit{
+//
+//    UIView *headerView = self.tableView.tableHeaderView;
+//
+//    [headerView setNeedsLayout];
+//    [headerView layoutIfNeeded];
+//    CGFloat height = [headerView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//    CGRect frame = headerView.frame;
+//
+//    frame.size.height = height;
+//    headerView.frame = frame;
+//
+//    self.tableView.tableHeaderView = headerView;
+//}
 
 - (void)dealloc{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
